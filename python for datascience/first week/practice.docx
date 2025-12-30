@@ -1,0 +1,89 @@
+Practice Questions
+
+1. What is the difference between a list and a tuple?
+A list is mutable, while a tuple is immutable. Their syntax: 
+List: food=[]
+Tuple: food=()
+
+2. How do you define a function in Python?
+You define a function using the def keyword followed by the function name and parentheses. Example:
+def my_function():
+    pass
+
+3. Write a for loop to iterate over a list of numbers.
+numbers = [1, 2, 3, 4, 5]
+for num in numbers:
+    print(num)
+
+4. How do you handle division by zero in Python? 
+we can handle division by zero using try-except block. for eg.
+try:
+    result=10/0
+except zeroDivisionError:
+    print("Cannot divide by zero")
+
+5. What is a dictionary in Python?
+A dictionary is a collection of key-value pairs, where each key is unique. For eg:
+my_dict={"book":"reverend insanity","author":"gu zhen ren"}
+
+6. Give an example of an f-string. 
+name = "Alice"
+age = 30
+greeting = f"My name is {name} and I am {age} years old."
+
+7. Explain the purpose of __init__ in a class. 
+The purpose of __init__ is to initialize the attributes of a class when an object is created.
+It is called the constructor method.
+
+8. How do you comment a single line in Python? 
+You comment a single line in Python using the # symbol. For example:
+# This is a single line comment
+
+9. What is the difference between == and =?
+The main difference is that = is an assignment operator while == is a comparison operator.
+
+10. Write a Python code to check if a number is even or odd. 
+number = 10
+if number %2 ==0:
+    print("Even")
+else:
+    print("odd")
+
+11. How many spaces should you use per indentation according to PEP8? 
+PEP8 recommends using 4 spaces per indentation level.
+
+12. What is the difference between append() and extend() in a list? 
+The difference is that append() adds a single element to the end of the list,
+while extend() adds multiple elements from an iterable (like another list) to the end of the list.
+
+13. How can you import only one function from a module? 
+We can import a single function from a module using the from keyword. for eg.
+from math import sqrt
+
+14. Write a lambda function to add two numbers. 
+add = lambda a,b:a+b
+
+15. What are *args and **kwargs? 
+*args is used to pass a variable number of non-keyword arguments to a function while
+**kwargs is used to pass a variable number of keyword arguments to a function.
+
+16. Explain the difference between try-except and if-else. 
+try-except is used for handling exceptions that may occur during code execution,
+while if-else is used for conditional branching based on boolean expressions.
+
+17. How do you print all keys of a dictionary? 
+my_dict = {"name": "Alice", "age": 30, "city": "New York"}
+for key in my_dict.keys():
+    print(key)
+
+18.What is the use of the pass statement? 
+The pass statement is used as a placeholder in Python. It allows you to write code that does nothing,
+which can be useful when you want to define a function or class that you plan to implement later
+
+19. Give an example of a Python constant. 
+PI = 3.14159
+
+20. Write a Python program to print the square of each number in a list using a loop.
+numbers = [1, 2, 3, 4, 5]
+for num in numbers:
+    print(num**2)

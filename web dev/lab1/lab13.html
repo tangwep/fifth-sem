@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student registration form</title>
+</head>
+<body>
+    <h2>Student registration form</h2>
+    <form>
+        <label for="username">username:</label><br>
+        <input type="text" required pattern="[a-zA-Z\s]{3,50}" id="username"
+        title="full name should be only letters"><br><br>
+        <label>email:</label><br>
+        <input type="email" required pattern="&{4,10}" id="email"
+        title="email should contain its pattern"><br><br>
+        <label>password:</label><br>
+        <input type="password"  id="password"
+        title="long pasword is better insurence to ur privacy"><br><br>
+        <label>Age:</label><br>
+        <input type="number"  id="number"
+        title="enter the age"><br><br>
+        <label>Gender:</label><br>
+        <input type="radio" name="Gender"><label for="male">male</label><br>
+        <input type="radio" name="Gender"><label for="female">female</label><br>
+        <input type="radio" name="Gender"><label for="others">others</label><br>
+        <label for="course">select course</label>
+        <select name="course" id="course">
+            <option value="value1">data science</option>
+            <option value="value2">math</option>
+            <option value="value3">hpe</option>
+        </select>
+        <br>
+        <input type="checkbox" name="terms and conditions">
+        <label>If you aggree to the terms and conditions</label><br>
+        <button type="submit">submit</button>
+
+    </form>
+</body>
+</html>
