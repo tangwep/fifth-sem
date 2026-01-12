@@ -1,40 +1,76 @@
+<!-- 
+Create a student registration form using HTML only that collects user information such as full name, email, password, age, gender,course 
+and acceptance of terms and conditions. Use appropriate form elements including text fields, radio buttons, dropdown lists and checkboxes.
+Apply basic HTML validation using attributes such as required, min, max and pattern. As a challenge, prevent the form from being submitted
+if the user’s age is less than 16 and display an alert message saying “Registration Successful” when
+the form is submitted successfully
+-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>student registration form</title>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Student registration form</h2>
-    <form>
-        <label for="username">username:</label><br>
-        <input type="text" required pattern="[a-zA-Z\s]{3,50}" id="username"
-        title="full name should be only letters"><br><br>
-        <label>email:</label><br>
-        <input type="email" required pattern="&{4,10}" id="email"
-        title="email should contain its pattern"><br><br>
-        <label>password:</label><br>
-        <input type="password"  id="password"
-        title="long pasword is better insurence to ur privacy"><br><br>
-        <label>Age:</label><br>
-        <input type="number"  id="number"
-        title="enter the age"><br><br>
-        <label>Gender:</label><br>
-        <input type="radio" name="Gender"><label for="male">male</label><br>
-        <input type="radio" name="Gender"><label for="female">female</label><br>
-        <input type="radio" name="Gender"><label for="others">others</label><br>
-        <label for="course">select course</label>
-        <select name="course" id="course">
-            <option value="value1">data science</option>
-            <option value="value2">math</option>
-            <option value="value3">hpe</option>
-        </select>
-        <br>
-        <input type="checkbox" name="terms and conditions">
-        <label>If you aggree to the terms and conditions</label><br>
-        <button type="submit">submit</button>
-
+    <form onsubmit="return validateForm()">
+      <label for="username">username:</label><br />
+      <input
+        type="text"
+        required
+        pattern="[a-zA-Z\s]{3,50}"
+        id="username"
+        title="full name should be only letters"
+      /><br /><br />
+      <label>Email:</label><br />
+      <input type="email" id="email" title="Enter a valid email" /><br /><br />
+      <label>password:</label><br />
+      <input
+        type="password"
+        id="password"
+        required
+        minlength="6"
+        title="Password must be atleast 6 characters"
+      /><br /><br />
+      <label>Age:</label><br />
+      <input
+        type="number"
+        id="age"
+        required
+        max="120"
+        title="enter the age(16+)"
+      /><br /><br />
+      <!--        <input type="number"  id="age" required min="16" max="120" title="enter the age(16+)"><br><br> -->
+      <label>Gender:</label><br />
+      <input type="radio" id="male" name="Gender" value="Male" required />
+      <label for="male">male</label><br />
+      <input type="radio" id="female" name="Gender" value="Female" required />
+      <label for="female">female</label><br />
+      <input type="radio" id="other" name="Gender" value="Other" />
+      <label for="others">others</label><br />
+      <label for="course">select course</label>
+      <select name="course" id="course">
+        <option value="value1">data science</option>
+        <option value="value2">math</option>
+        <option value="value3">hpe</option>
+      </select>
+      <br />
+      <input type="checkbox" name="terms" id="terms" required />
+      <label for="terms">If you aggree to the terms and conditions</label
+      ><br /><br />
+      <button type="submit">submit</button>
     </form>
-</body>
+<script>
+function validateForm() {
+    var age = document.getElementById("age").value;
+    if (age < 16) {
+        alert("You must be at least 16 years old to register.");
+        return false; // stop form submission
+    }
+    alert("Registration Successful!");
+    return true; // allow form submission
+}
+</script> 
+  </body>
 </html>
