@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning & Display - Simple Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #0066cc;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #0066cc;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            background: #f9f9f9;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* ========== DEMO BOX STYLES ========== */
+        .demo-area {
+            background: #e8f4f8;
+            padding: 20px;
+            border: 2px dashed #0066cc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            position: relative;
+            min-height: 100px;
+        }
+
+        .demo-box {
+            background: #0066cc;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            width: fit-content;
+        }
+
+        .code {
+            background: #2d2d2d;
+            color: #4ec9b0;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        /* ========== POSITIONING DEMOS ========== */
+        
+        /* STATIC */
+        .static-demo {
+            position: static;
+        }
+
+        /* RELATIVE */
+        .relative-demo {
+            position: relative;
+        }
+
+        .relative-offset {
+            position: relative;
+            top: 15px;
+            left: 40px;
+        }
+
+        /* ABSOLUTE */
+        .absolute-parent {
+            position: relative;
+            border: 2px solid #ff9800;
+            background: #fffbf0;
+            padding: 20px;
+            height: 150px;
+            margin-top: 10px;
+        }
+
+        .absolute-box {
+            position: absolute;
+            background: #ff9800;
+            color: white;
+            padding: 10px;
+            width: 80px;
+            border-radius: 4px;
+        }
+
+        .abs-tl { top: 10px; left: 10px; }
+        .abs-tr { top: 10px; right: 10px; }
+        .abs-bl { bottom: 10px; left: 10px; }
+        .abs-br { bottom: 10px; right: 10px; }
+
+        /* FIXED */
+        .fixed-demo-info {
+            background: #f0f9f6;
+            border: 2px solid #00cc66;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .fixed-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00cc66;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 4px;
+            z-index: 100;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-weight: bold;
+        }
+
+        /* DISPLAY: BLOCK */
+        .block-demo {
+            display: block;
+            background: #9966cc;
+            color: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        /* DISPLAY: INLINE */
+        .inline-demo {
+            display: inline;
+            background: #cc3366;
+            color: white;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+        /* DISPLAY: INLINE-BLOCK */
+        .inline-block-demo {
+            display: inline-block;
+            background: #66cc00;
+            color: white;
+            padding: 12px 16px;
+            margin: 8px;
+            width: 120px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        /* COMPARISON TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        table th {
+            background: #0066cc;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>📍 CSS Positioning & Display Guide</h1>
+    <p class="intro">Learn positioning (static, relative, absolute, fixed) and display (block, inline, inline-block)</p>
+
+    <!-- ========== STATIC ========== -->
+    <div class="section">
+        <h2>1. STATIC (Default)</h2>
+        <div class="description">
+            ✓ Elements flow naturally, one after another<br>
+            ✓ top, left, bottom, right properties are IGNORED
+        </div>
+        <div class="demo-area">
+            <div class="demo-box static-demo">Static Box</div>
+        </div>
+        <div class="code">position: static;</div>
+    </div>
+
+    <!-- ========== RELATIVE ========== -->
+    <div class="section">
+        <h2>2. RELATIVE</h2>
+        <div class="description">
+            ✓ Element stays in normal flow, but can be offset<br>
+            ✓ top/left/right/bottom move it from its original position<br>
+            ✓ Other elements don't move to fill the gap
+        </div>
+        <div class="demo-area">
+            <div class="demo-box relative-demo">Normal Position</div>
+            <div class="demo-box relative-offset">Moved Down 15px, Right 40px</div>
+        </div>
+        <div class="code">position: relative;<br>top: 15px; left: 40px;</div>
+    </div>
+
+    <!-- ========== ABSOLUTE ========== -->
+    <div class="section">
+        <h2>3. ABSOLUTE</h2>
+        <div class="description">
+            ✓ Element is removed from normal flow<br>
+            ✓ Positioned relative to nearest positioned parent<br>
+            ✓ Can place it anywhere using top, left, right, bottom
+        </div>
+        <div class="absolute-parent">
+            <div class="absolute-box abs-tl">Top Left</div>
+            <div class="absolute-box abs-tr">Top Right</div>
+            <div class="absolute-box abs-bl">Bottom Left</div>
+            <div class="absolute-box abs-br">Bottom Right</div>
+        </div>
+        <div class="code">position: absolute; top: 10px; left: 10px;</div>
+    </div>
+
+    <!-- ========== FIXED ========== -->
+    <div class="section">
+        <h2>4. FIXED</h2>
+        <div class="description">
+            ✓ Element stays fixed to the VIEWPORT (window)<br>
+            ✓ Doesn't scroll with the page<br>
+            ✓ Great for floating buttons, navbars
+        </div>
+        <div class="fixed-demo-info">
+            📌 Look at bottom-right corner → there's a fixed button that stays visible when scrolling!
+        </div>
+        <div class="code">position: fixed; bottom: 20px; right: 20px;</div>
+    </div>
+
+    <!-- ========== DISPLAY: BLOCK ========== -->
+    <div class="section">
+        <h2>5. DISPLAY: BLOCK</h2>
+        <div class="description">
+            ✓ Takes up FULL WIDTH available<br>
+            ✓ Starts on a NEW LINE<br>
+            ✓ Examples: &lt;div&gt;, &lt;p&gt;, &lt;h1&gt;
+        </div>
+        <div class="demo-area">
+            <div class="block-demo">Block 1 - Full Width</div>
+            <div class="block-demo">Block 2 - Full Width</div>
+        </div>
+        <div class="code">display: block;</div>
+    </div>
+
+    <!-- ========== DISPLAY: INLINE ========== -->
+    <div class="section">
+        <h2>6. DISPLAY: INLINE</h2>
+        <div class="description">
+            ✓ Flows with text, doesn't start new line<br>
+            ✓ width/height properties DON'T WORK<br>
+            ✓ Examples: &lt;span&gt;, &lt;a&gt;, &lt;strong&gt;
+        </div>
+        <div class="demo-area">
+            <span class="inline-demo">Inline 1</span>
+            <span class="inline-demo">Inline 2</span>
+            <span class="inline-demo">Inline 3</span>
+        </div>
+        <div class="code">display: inline;</div>
+    </div>
+
+    <!-- ========== DISPLAY: INLINE-BLOCK ========== -->
+    <div class="section">
+        <h2>7. DISPLAY: INLINE-BLOCK</h2>
+        <div class="description">
+            ✓ Flows like inline (no new line)<br>
+            ✓ But respects width, height, margins<br>
+            ✓ Perfect for buttons and cards
+        </div>
+        <div class="demo-area">
+            <div class="inline-block-demo">Box 1</div>
+            <div class="inline-block-demo">Box 2</div>
+            <div class="inline-block-demo">Box 3</div>
+        </div>
+        <div class="code">display: inline-block; width: 120px;</div>
+    </div>
+
+    <!-- ========== COMPARISON TABLE ========== -->
+    <div class="section">
+        <h2>Quick Comparison</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Flow</th>
+                    <th>Respects Width/Height</th>
+                    <th>When to Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Static</strong></td>
+                    <td>Normal</td>
+                    <td>Yes</td>
+                    <td>Default, no special positioning</td>
+                </tr>
+                <tr>
+                    <td><strong>Relative</strong></td>
+                    <td>Normal + offset</td>
+                    <td>Yes</td>
+                    <td>Small adjustments to position</td>
+                </tr>
+                <tr>
+                    <td><strong>Absolute</strong></td>
+                    <td>Removed</td>
+                    <td>Yes</td>
+                    <td>Precise positioning inside container</td>
+                </tr>
+                <tr>
+                    <td><strong>Fixed</strong></td>
+                    <td>Removed (to viewport)</td>
+                    <td>Yes</td>
+                    <td>Floating buttons, sticky navbars</td>
+                </tr>
+                <tr>
+                    <td><strong>Block</strong></td>
+                    <td>New line, full width</td>
+                    <td>Yes</td>
+                    <td>Containers, sections</td>
+                </tr>
+                <tr>
+                    <td><strong>Inline</strong></td>
+                    <td>With text, no new line</td>
+                    <td>No</td>
+                    <td>Text-level elements, links</td>
+                </tr>
+                <tr>
+                    <td><strong>Inline-Block</strong></td>
+                    <td>With text, no new line</td>
+                    <td>Yes</td>
+                    <td>Buttons, small cards, badges</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Fixed button visible when scrolling -->
+    <div class="fixed-button">⬆️ Scroll Me!</div>
+
+</body>
+</html>

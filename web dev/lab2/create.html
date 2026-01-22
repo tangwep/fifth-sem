@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning & Display Demonstration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #0066cc;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* ============ STATIC POSITIONING ============ */
+        .static-demo {
+            position: static;
+            background-color: #e8f4f8;
+            padding: 20px;
+            border: 2px solid #0066cc;
+            margin-bottom: 15px;
+        }
+
+        .static-box {
+            background-color: #0066cc;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        /* ============ RELATIVE POSITIONING ============ */
+        .relative-container {
+            position: relative;
+            background-color: #ffe8e8;
+            padding: 20px;
+            border: 2px solid #ff6666;
+            margin-bottom: 15px;
+            height: 150px;
+        }
+
+        .relative-box {
+            background-color: #ff6666;
+            color: white;
+            padding: 15px;
+            position: relative;
+            width: fit-content;
+            margin-bottom: 10px;
+        }
+
+        .relative-offset {
+            background-color: #ff9999;
+            color: white;
+            padding: 15px;
+            position: relative;
+            top: 20px;
+            left: 50px;
+            width: fit-content;
+        }
+
+        /* ============ ABSOLUTE POSITIONING ============ */
+        .absolute-container {
+            position: relative;
+            background-color: #fff3e0;
+            padding: 20px;
+            border: 2px solid #ff9800;
+            margin-bottom: 15px;
+            height: 200px;
+        }
+
+        .absolute-box {
+            position: absolute;
+            background-color: #ff9800;
+            color: white;
+            padding: 15px;
+            width: 150px;
+            border-radius: 4px;
+        }
+
+        .absolute-top-left {
+            top: 20px;
+            left: 20px;
+        }
+
+        .absolute-top-right {
+            top: 20px;
+            right: 20px;
+        }
+
+        .absolute-bottom-left {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .absolute-bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        /* ============ FIXED POSITIONING ============ */
+        .fixed-demo {
+            background-color: #e8f8f4;
+            padding: 20px;
+            border: 2px solid #00cc66;
+            margin-bottom: 15px;
+        }
+
+        .fixed-box {
+            position: fixed;
+            background-color: #00cc66;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .fixed-info {
+            background-color: #ccf2e8;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        /* ============ DISPLAY: BLOCK ============ */
+        .block-demo {
+            background-color: #f0e8f8;
+            padding: 20px;
+            border: 2px solid #9966cc;
+            margin-bottom: 15px;
+        }
+
+        .block-box {
+            display: block;
+            background-color: #9966cc;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        /* ============ DISPLAY: INLINE ============ */
+        .inline-demo {
+            background-color: #f8e8f0;
+            padding: 20px;
+            border: 2px solid #cc3366;
+            margin-bottom: 15px;
+        }
+
+        .inline-box {
+            display: inline;
+            background-color: #cc3366;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+        /* ============ DISPLAY: INLINE-BLOCK ============ */
+        .inline-block-demo {
+            background-color: #e8f8e8;
+            padding: 20px;
+            border: 2px solid #66cc00;
+            margin-bottom: 15px;
+        }
+
+        .inline-block-box {
+            display: inline-block;
+            background-color: #66cc00;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px;
+            width: 150px;
+            height: 80px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .code-box {
+            background-color: #2d2d2d;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>🎨 CSS Positioning & Display Demonstration</h1>
+
+    <!-- ========== STATIC POSITIONING ========== -->
+    <div class="container">
+        <h2>1. STATIC Positioning</h2>
+        <p>This is the <strong>default</strong> positioning. Elements follow the normal document flow.</p>
+        <div class="static-demo">
+            <div class="static-box">Box 1 - Static</div>
+            <div class="static-box">Box 2 - Static (top, left properties are ignored)</div>
+            <div class="static-box">Box 3 - Static</div>
+        </div>
+        <div class="code-box">
+position: static;  /* Default - normal flow */
+        </div>
+    </div>
+
+    <!-- ========== RELATIVE POSITIONING ========== -->
+    <div class="container">
+        <h2>2. RELATIVE Positioning</h2>
+        <p>Elements are positioned relative to their normal position. Other content is not affected.</p>
+        <div class="relative-container">
+            <div class="relative-box">Box 1 - Relative (Normal Position)</div>
+            <div class="relative-offset">Box 2 - Relative (Offset by top: 20px, left: 50px)</div>
+        </div>
+        <div class="code-box">
+position: relative;
+top: 20px;
+left: 50px;
+        </div>
+    </div>
+
+    <!-- ========== ABSOLUTE POSITIONING ========== -->
+    <div class="container">
+        <h2>3. ABSOLUTE Positioning</h2>
+        <p>Elements are removed from normal flow and positioned relative to nearest positioned ancestor.</p>
+        <div class="absolute-container">
+            <div class="absolute-box absolute-top-left">Top Left</div>
+            <div class="absolute-box absolute-top-right">Top Right</div>
+            <div class="absolute-box absolute-bottom-left">Bottom Left</div>
+            <div class="absolute-box absolute-bottom-right">Bottom Right</div>
+        </div>
+        <div class="code-box">
+position: absolute;
+top: 20px; left: 20px;  /* Or right/bottom */
+        </div>
+    </div>
+
+    <!-- ========== FIXED POSITIONING ========== -->
+    <div class="container">
+        <h2>4. FIXED Positioning</h2>
+        <p>Elements are fixed relative to the viewport. They stay in the same position even when scrolling.</p>
+        <div class="fixed-demo">
+            <div class="fixed-info">📌 Scroll down to see the fixed box in the bottom-right corner!</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <div class="code-box">
+position: fixed;
+bottom: 20px; right: 20px;
+z-index: 100;
+        </div>
+    </div>
+
+    <!-- ========== DISPLAY: BLOCK ========== -->
+    <div class="container">
+        <h2>5. DISPLAY: BLOCK</h2>
+        <p>Block elements take up the <strong>full width available</strong> and always start on a new line.</p>
+        <div class="block-demo">
+            <div class="block-box">Block Box 1 (full width)</div>
+            <div class="block-box">Block Box 2 (full width)</div>
+            <div class="block-box">Block Box 3 (full width)</div>
+        </div>
+        <div class="code-box">
+display: block;  /* Takes full width, new line */
+        </div>
+    </div>
+
+    <!-- ========== DISPLAY: INLINE ========== -->
+    <div class="container">
+        <h2>6. DISPLAY: INLINE</h2>
+        <p>Inline elements flow within text, only take up necessary width, and ignore width/height properties.</p>
+        <div class="inline-demo">
+            <span class="inline-box">Inline 1</span>
+            <span class="inline-box">Inline 2</span>
+            <span class="inline-box">Inline 3</span>
+            <span class="inline-box">Inline 4</span>
+        </div>
+        <div class="code-box">
+display: inline;  /* Flows with text, ignores width/height */
+        </div>
+    </div>
+
+    <!-- ========== DISPLAY: INLINE-BLOCK ========== -->
+    <div class="container">
+        <h2>7. DISPLAY: INLINE-BLOCK</h2>
+        <p>Combines inline and block properties. Elements flow like inline but respect width/height and margins.</p>
+        <div class="inline-block-demo">
+            <div class="inline-block-box">Box 1</div>
+            <div class="inline-block-box">Box 2</div>
+            <div class="inline-block-box">Box 3</div>
+        </div>
+        <div class="code-box">
+display: inline-block;  /* Inline flow + respects width/height */
+        </div>
+    </div>
+
+    <!-- ========== COMPARISON TABLE ========== -->
+    <div class="container">
+        <h2>Comparison Table</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Flow</th>
+                    <th>Takes Full Width</th>
+                    <th>Respects Width/Height</th>
+                    <th>Use Case</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Static</strong></td>
+                    <td>Normal</td>
+                    <td>Block only</td>
+                    <td>Block only</td>
+                    <td>Default positioning</td>
+                </tr>
+                <tr>
+                    <td><strong>Relative</strong></td>
+                    <td>Normal + Offset</td>
+                    <td>Block only</td>
+                    <td>Yes</td>
+                    <td>Slight adjustments</td>
+                </tr>
+                <tr>
+                    <td><strong>Absolute</strong></td>
+                    <td>Removed</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                    <td>Precise positioning</td>
+                </tr>
+                <tr>
+                    <td><strong>Fixed</strong></td>
+                    <td>Removed (to viewport)</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                    <td>Always visible elements</td>
+                </tr>
+                <tr>
+                    <td><strong>Block</strong></td>
+                    <td>Normal</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Full-width containers</td>
+                </tr>
+                <tr>
+                    <td><strong>Inline</strong></td>
+                    <td>With text</td>
+                    <td>No</td>
+                    <td>No</td>
+                    <td>Text-level elements</td>
+                </tr>
+                <tr>
+                    <td><strong>Inline-Block</strong></td>
+                    <td>With text</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                    <td>Buttons, badges, layouts</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Fixed box visible when scrolling -->
+    <div class="fixed-box">⬆️ Scroll me!</div>
+
+</body>
+</html>
