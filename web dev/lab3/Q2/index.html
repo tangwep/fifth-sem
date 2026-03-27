@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-card">
+        <h2>Registration Form</h2>
+        <form id="regForm">
+            <input type="text" id="fullName" placeholder="Full Name" required>
+
+            <input type="text" id="username" placeholder="Username" required>
+
+            <label for="role">Select Role:</label>
+            <select id="role">
+                <option value="Student">Student</option>
+                <option value="Teacher">Teacher</option>
+            </select>
+
+            <input type="email" id="email" placeholder="Email (Check domain rules)" required>
+            <span id="emailError" class="error-msg"></span>
+
+            <div class="row">
+                <input type="number" id="age" placeholder="Age" required style="width: 40%;">
+                <select id="gender" style="width: 50%;">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <input type="text" id="course" placeholder="Course Name" required>
+
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPass" placeholder="Confirm Password" required>
+            <span id="passError" class="error-msg"></span>
+
+            <div class="terms">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">Accept Terms & Conditions</label>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

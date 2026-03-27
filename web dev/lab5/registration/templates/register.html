@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 5 - User Registration</title>
+    <style>
+        body { font-family: Arial; padding: 20px; line-height: 1.6; }
+        .form-container { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 5px; width: 300px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>User Registration</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save User</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <h2>Registered Users List</h2>
+    <table>
+        <tr>
+            <th>Name</th><th>Username</th><th>Age</th><th>Gender</th><th>Email</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.gender }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

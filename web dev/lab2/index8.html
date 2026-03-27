@@ -1,0 +1,36 @@
+<!-- Create a personal profile card using HTML and CSS that displays a user’s basic information in a visually structured format. The profile card should include a profile image, full name, short description or bio, research interests, skills and contact information such as email or website using hyperlinks. Use CSS to style the card with appropriate borders, shadows, spacing, background colors and font styles. Apply layout techniques such as Flexbox or Grid to align the content inside the card. Include hover effects, transitions or subtle animations to enhance the presentation of the card and ensure that all information is clearly readable and well-organized. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minimal Profile Card</title>
+    <link rel="stylesheet" href="q8.css">
+</head>
+<body>
+
+    <div class="card">
+        <img src="profile.jpg" alt="User Image" class="profile-pic">
+        
+        <h2>Rabin kattel</h2>
+        <p class="bio">Computer Engineering Student</p>
+
+        <span class="section-title">Skills</span>
+        <div class="skills-list">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Python</span>
+        </div>
+
+        <span class="section-title">Research Interests</span>
+        <p style="font-size: 13px; color: #555;">Game dev and website optimization</p>
+
+        <div class="contact">
+            <a href="mailto:student@example.com">Email</a>
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+</body>
+</html>

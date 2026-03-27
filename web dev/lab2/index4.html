@@ -1,0 +1,105 @@
+<!-- Design a responsive webpage layout using CSS Flexbox. Create a container with multiple items and apply flexbox properties such as flex-direction, justify-content, align-items, and flex-wrap. Demonstrate the use of flex-grow, flex-shrink, and flex-basis on flex items. Use flexbox to design a navigation bar and a card-style layout that adjusts properly on different screen sizes. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Lab Work</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 0; }
+
+        /* Navigation Bar using Flexbox */
+        nav {
+            display: flex;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            justify-content: space-between; /* Horizontal alignment */
+            align-items: center;            /* Vertical alignment */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        /* Main Container for Flex Properties */
+        .flex-container {
+            display: flex;
+            flex-direction: row;     /* Direction of items */
+            flex-wrap: wrap;         /* Wrapping behavior */
+            justify-content: center; /* Main axis alignment */
+            align-items: stretch;    /* Cross axis alignment */
+            padding: 20px;
+            gap: 15px;
+            background: #f4f4f4;
+        }
+
+        /* Card Layout */
+        .card {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            /* Flex item properties */
+            flex-basis: 250px; /* Base size before grow/shrink */
+        }
+
+        /* Demonstrating Flex Grow, Shrink, and Basis */
+        .item-grow { flex-grow: 2; border: 2px solid blue; } 
+        .item-shrink { flex-shrink: 2; width: 400px; border: 2px solid red; }
+        .item-basis { flex-basis: 150px; border: 2px solid green; }
+
+        @media (max-width: 600px) {
+            nav, .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links li { margin: 5px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">FlexLab</div>
+        <ul class="nav-links">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <h2 style="text-align:center;">Card Layout (Flexbox)</h2>
+
+    <div class="flex-container">
+        <div class="card item-grow">
+            <h3>Flex Grow</h3>
+            <p>This item expands more than others to fill extra space.</p>
+        </div>
+
+        <div class="card item-shrink">
+            <h3>Flex Shrink</h3>
+            <p>This item will shrink faster when the container is small.</p>
+        </div>
+
+        <div class="card item-basis">
+            <h3>Flex Basis</h3>
+            <p>This item has a fixed base width of 150px.</p>
+        </div>
+
+        <div class="card">
+            <h3>Standard Card</h3>
+            <p>Uses default flex properties.</p>
+        </div>
+    </div>
+
+</body>
+</html>

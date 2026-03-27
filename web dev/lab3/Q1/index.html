@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clean Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>My List</h2>
+        
+        <div class="main-controls">
+            <button id="showInputBtn" onclick="toggleInput(true)">Add Item</button>
+            <button onclick="removeSelected()" class="delete-btn">Delete Selected</button>
+        </div>
+
+        <div id="inputArea" class="hidden">
+            <input type="text" id="itemInput" placeholder="Enter item name...">
+            <button onclick="saveItem()" class="save-btn">Save</button>
+            <button onclick="toggleInput(false)" class="cancel-btn">Cancel</button>
+        </div>
+
+        <ul id="myList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/* General Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 { text-align: center; color: #333; margin-bottom: 20px; }
+
+/* Input Styling */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* Red Highlight for Invalid Inputs */
+.invalid {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff8f8;
+}
+
+/* Error Message Text */
+.error-msg {
+    color: #dc3545;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.row { display: flex; justify-content: space-between; }
+
+.terms { font-size: 14px; margin: 15px 0; }
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover { background-color: #0056b3; }

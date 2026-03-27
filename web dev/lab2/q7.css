@@ -1,0 +1,110 @@
+:root {
+    --primary: #2c3e50;
+    --error: #e74c3c;
+    --success: #27ae60;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Styling text fields, dropdowns, and numbers */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Ensures padding doesn't increase width */
+}
+
+/* Focus effect */
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    outline: none;
+    background-color: #f0f7ff;
+}
+
+/* Age Validation Challenge: Styling invalid state */
+input[type="number"]:invalid {
+    border: 2px solid var(--error);
+}
+
+/* Hidden message that shows when age is under 16 */
+.age-warning {
+    display: none;
+    color: var(--error);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* CSS Logic: If the number input is invalid (less than 16), show the next sibling div */
+input#age:invalid+.age-warning {
+    display: block;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 5px 0;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+/* Interactivity effects */
+button:hover {
+    background-color: #1a252f;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.required {
+    color: var(--error);
+}
